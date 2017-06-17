@@ -9,9 +9,12 @@ string process_to_string(string in){
 }
 
 int main(int argc, char *argv[]){
-	string in;
-	cin >> in;
-
-	cout << process_to_string(in);
+	auto path_and_program = the(argv[0]).split_with("/");
+	string program = path_and_program[path_and_program.size()];
+	vector<string> input;
+	for (int i = 1; i < argc; ++i) 
+		input.emplace_back(string(argv[i]));
+	cout << process_to_string(program);
+	cout << endl;
 }
 
